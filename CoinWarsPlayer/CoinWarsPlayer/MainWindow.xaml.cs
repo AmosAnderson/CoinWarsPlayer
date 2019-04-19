@@ -55,7 +55,7 @@ namespace CoinWarsPlayer
 
             string portName = SerialPort.GetPortNames().FirstOrDefault();
 
-            if (!String.IsNullOrEmpty(portName))
+            if (!string.IsNullOrEmpty(portName))
             {
                 port = new SerialPort(portName)
                 {
@@ -73,7 +73,7 @@ namespace CoinWarsPlayer
 
         private void AddWorkToQueue(string coin)
         {
-            if (!Int32.TryParse(coin, out int coinValue))
+            if (!int.TryParse(coin, out int coinValue))
                 return;
 
             if (coinValue == 9999)
@@ -231,7 +231,7 @@ namespace CoinWarsPlayer
 
             string coin = sp.ReadTo("#");
 
-            if (!String.IsNullOrWhiteSpace(coin))
+            if (!string.IsNullOrWhiteSpace(coin))
             {
                 Dispatcher.Invoke(() => AddWorkToQueue(coin));
             }
